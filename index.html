@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Hannah 🤍</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #fff6f9, #fce4ec);
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* INTRO */
+#intro {
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  z-index:10;
+  transition:1.5s;
+}
+
+.enter-btn {
+  margin-top:20px;
+  padding:12px 30px;
+  background:gold;
+  border:none;
+  border-radius:30px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* HERO */
+.hero {
+  height:100vh;
+  background:url('PHOTO2.jpg') center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  position:relative;
+}
+
+.hero::after {
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero-content {
+  position:relative;
+  z-index:1;
+}
+
+/* GALLERY */
+.gallery {
+  padding:60px 20px;
+}
+
+.gallery img {
+  width:80%;
+  max-width:350px;
+  border-radius:20px;
+  margin:20px 0;
+  box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* US SECTION */
+.us {
+  padding:60px 20px;
+  background:#fff0f5;
+}
+
+.us img {
+  width:85%;
+  max-width:400px;
+  border-radius:25px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.3);
+  margin-bottom:20px;
+}
+
+/* QUESTION */
+.question {
+  padding:60px 20px;
+}
+
+.btn {
+  padding:12px 25px;
+  border:none;
+  border-radius:25px;
+  font-size:1rem;
+  cursor:pointer;
+  margin:10px;
+}
+
+.yes { background:gold; }
+.no { background:pink; position:relative; }
+
+.confetti {
+  position:fixed;
+  width:10px;
+  height:10px;
+  background:gold;
+  top:-10px;
+  animation:fall 3s linear infinite;
+}
+
+@keyframes fall {
+  to { transform:translateY(100vh) rotate(720deg); }
+}
+</style>
+</head>
+<body>
+
+<audio id="bg-music" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<div id="intro">
+  <h1>In a world full of people...  
+  I found my favorite one 🤍</h1>
+  <button class="enter-btn" onclick="enterSite()">Enter</button>
+</div>
+
+<section class="hero">
+  <div class="hero-content">
+    <h2>You look beautiful... but even better knowing you're mine.In a world full of ordinary moments, you are my favorite one.
+      I really cherish every moment we spent together and I can’t wait for you to be my wife😚❤️</h2>
+    <p>Made with love by Maxxie 🤍</p>
+  </div>
+</section>
+
+<section class="gallery">
+  <h2>My Favorite Girl</h2>
+  <img src="PHOTO1.jpg">
+  <p>My favorite smile.</p>
+  <img src="PHOTO2.jpg">
+  <p>My peace.</p>
+</section>
+
+<section class="us">
+  <h2>Us 🤍</h2>
+  <img src="PHOTO3.jpg">
+  <p>Not just a moment... but a memory I’ll always keep.</p>
+</section>
+
+<section class="question">
+  <h2>Hannah... Will you be my Valentine?</h2>
+  <button class="btn yes" onclick="sayYes()">YES 💖</button>
+  <button class="btn no" onmouseover="moveButton(this)">No 🙈</button>
+</section>
+
+<script>
+function enterSite(){
+  document.getElementById("intro").style.opacity="0";
+  setTimeout(()=>{ document.getElementById("intro").style.display="none"; },1500);
+  document.getElementById("bg-music").play();
+}
+
+function moveButton(btn){
+  btn.style.position="absolute";
+  btn.style.left=Math.random()*80+"%";
+  btn.style.top=Math.random()*80+"%";
+}
+
+function sayYes(){
+  for(let i=0;i<60;i++){
+    let c=document.createElement("div");
+    c.classList.add("confetti");
+    c.style.left=Math.random()*100+"vw";
+    c.style.animationDuration=(Math.random()*3+2)+"s";
+    document.body.appendChild(c);
+  }
+  alert("You just made Maxxie the happiest guy alive 🤍
+        I can’t wait to see you my love and make out obviously😅😂🤍✨ I can’t wait to make beautiful memories with you, Hannah.");
+}
+</script>
+
+</body>
+</html>
